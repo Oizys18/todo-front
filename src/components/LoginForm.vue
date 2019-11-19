@@ -15,7 +15,9 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
+import router from '@/router'; // router/index.js에서 export default router 설정했기 때문에 이렇게만 적어도 알아서 가져온다.
+// import session from 'vue-session';
 
 export default {
   name: 'LoginForm',
@@ -30,6 +32,9 @@ export default {
       axios.post('http://127.0.0.1:8000/api-token-auth/',this.credentials)
       .then(res =>{
         console.log(res.data.token)
+        this.$session.start()
+        this.$session.set('jwt', res.data.token)
+        router.push('/')
       })
     }
   }

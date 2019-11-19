@@ -10,6 +10,7 @@
 <script>
 import TodoList from "@/components/TodoList.vue";
 import TodoInput from "@/components/TodoInput.vue";
+import router from '@/router';
 // @ is an alias to /src
 // import  from '@/components/'
 
@@ -29,6 +30,17 @@ export default {
     TodoList,
     TodoInput
   },
+  methods: {
+    loggedIn() {
+      this.$session.start()
+      if (!this.$session.has('jwt')) {
+        router.push('/login')
+      }
+    }
+  },
+  mounted() {
+    this.loggedIn()
+  }
   
 };
 </script>

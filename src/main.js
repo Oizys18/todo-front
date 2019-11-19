@@ -9,4 +9,4 @@ Vue.use(VueSession)
 new Vue({
   router,
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#app')  //el:'#app'과 동일함, mount 포인트를 지정하는 것  
