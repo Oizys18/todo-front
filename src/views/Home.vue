@@ -1,18 +1,34 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h2>Todo: Django & Vue</h2>
+    <hr>
+    <TodoInput />
+    <TodoList :todos="todos" />
   </div>
 </template>
 
 <script>
+import TodoList from "@/components/TodoList.vue";
+import TodoInput from "@/components/TodoInput.vue";
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+// import  from '@/components/'
 
 export default {
-  name: 'home',
+  name: "home",
+  data() {
+    return {
+      todos:[
+        {title:'Django DRF login 구현'},
+        {title:'JWT 활용 세션 구현'},
+        {title:'Todo 관련 API 구현'},
+        {title:'Vuex 활용 Flux 아키텍쳐 적용'},
+      ],
+    }
+  },
   components: {
-    HelloWorld
-  }
-}
+    TodoList,
+    TodoInput
+  },
+  
+};
 </script>
