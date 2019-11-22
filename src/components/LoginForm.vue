@@ -28,10 +28,10 @@ export default {
   },
   methods:{
     login () {
-      console.log(this.credentials) 
+      // console.log(this.credentials) 
       axios.post('http://127.0.0.1:8000/api-token-auth/',this.credentials)
       .then(res =>{
-        console.log(res.data.token)
+        // console.log(res.data.token)
         this.$session.start()
         this.$session.set('jwt', res.data.token)
         router.push('/')
